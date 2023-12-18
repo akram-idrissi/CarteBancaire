@@ -91,22 +91,30 @@ public class CarteBancaire implements Comparable<CarteBancaire> {
 		if (getClass() != obj.getClass())
 			return false;
 		CarteBancaire other = (CarteBancaire) obj;
-		return Objects.equals(numeroCarte, other.numeroCarte);
+		return Objects.equals(codeSecurite, other.codeSecurite);
+	}
+
+	//@Override
+	//public String toString() {
+		//return "Titulaire: " + titulaire + " \nDate expiration: " + dateExpiration + "\nActive: " + active + ".";
+	//}
+	
+	
+
+	@Override
+	public int compareTo(CarteBancaire carte) {
+		if (this.codeSecurite == 0)
+			return 0;
+		if (this.codeSecurite < carte.codeSecurite)
+			return -1;
+
+		return 1;
 	}
 
 	@Override
 	public String toString() {
-		return "Titulaire: " + titulaire + " \nDate expiration: " + dateExpiration + "\nActive: " + active + ".";
-	}
-
-	@Override
-	public int compareTo(CarteBancaire carte) {
-		if (this.numeroCarte.compareTo(carte.numeroCarte) == 0)
-			return 0;
-		if (this.numeroCarte.compareTo(carte.numeroCarte) == -1)
-			return -1;
-
-		return 1;
+		return "CarteBancaire [codeSecurite=" + codeSecurite + ", active=" + active + ", plafond=" + plafond
+				+ ", sansContact=" + sansContact + ", soldeDisponible=" + soldeDisponible + "]";
 	}
 
 }
