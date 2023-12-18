@@ -32,7 +32,7 @@ public class TableauCarteBancaire {
 		int tailleActuelle = this.cartes.length;
 		// Creation d'une copie du tableau en incrementant la taille par 1.
 		this.cartes = Arrays.copyOf(this.cartes, tailleActuelle + 1);
-		this.cartes[tailleActuelle - 1] = element;
+		this.cartes[this.cartes.length - 1] = element;
 	}
 
 	public void supprimer(CarteBancaire element) {
@@ -71,7 +71,7 @@ public class TableauCarteBancaire {
 
 	public void afficher() {
 		for (CarteBancaire carte : this.cartes)
-			System.out.println(carte.toString());
+			System.out.println(carte);
 	}
 
 	public double max() {
